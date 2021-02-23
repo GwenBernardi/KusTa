@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Feb 19 10:29:20 2021
+Fonction d'activation
 
-@author: gwend
+@author: gwendal
 """
 
 import numpy as np
 
-# activation function and its derivative
+# Fonction d'activation et ces dérivées
 def tanh(x):
     return np.tanh(x);
 

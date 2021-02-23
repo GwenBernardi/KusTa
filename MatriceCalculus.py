@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Feb 21 17:44:31 2021
+Futur remplacant de numpy en construction
 
-@author: gwend
+@author: gwendal
 """
 
 class Matrice:

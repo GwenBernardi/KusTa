@@ -1,36 +1,36 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Feb 19 10:28:36 2021
+Application du réseau de neurone sur une porte logique XOR
 
-@author: gwend
+@author: gwendal
 """
 
 import numpy as np
 
 from Network import Network
-from FCLayer import FCLayer
+from FCLayer import FullConectedLayer
 from ActivationLayer import ActivationLayer
 from activation import tanh, tanh_prime
 from loss import mse, mse_prime
 
-# training data
+# Donnée d'apprentissage
 x_train = np.array([[[0,0]], [[0,1]], [[1,0]], [[1,1]]])
 y_train = np.array([[[0]], [[1]], [[1]], [[0]]])
 
-# network
-net = Network()
-net.add(FCLayer(2, 3))
-net.add(ActivationLayer(tanh, tanh_prime))
-net.add(FCLayer(3, 1))
-net.add(ActivationLayer(tanh, tanh_prime))
+# Création du réseau
+model = Network()
+model.add(FullConectedLayer(2, 3))
+model.add(ActivationLayer(tanh, tanh_prime))
+model.add(FullConectedLayer(3, 1))
+model.add(ActivationLayer(tanh, tanh_prime))
 
-# train
-net.use(mse, mse_prime)
-net.fit(x_train, y_train, epochs=1000, learning_rate=0.1)
+# Entrainement
+model.use(mse, mse_prime)
+model.fit(x_train, y_train, epochs=1000, learning_rate=0.1)
 
-# test
-out = net.predict(x_train)
+# Test
+model = model.predict(x_train)
 
-net.print_error()
+model.print_error()
 
-print(out)
+print(model)

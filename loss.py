@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Feb 19 10:29:00 2021
+Fonction de coût
 
-@author: gwend
+@author: gwendal
 """
 
 import numpy as np
 
-# loss function and its derivative
+# Fonctions de coût et ces dérivées
 def mse(y_true, y_pred):
     return np.mean(np.power(y_true-y_pred, 2));
 
